@@ -27,3 +27,4 @@ require('file?name=[name].[ext]!./mstile-150x150.png');
 require('file?name=[name].[ext]!./mstile-310x150.png');
 require('file?name=[name].[ext]!./mstile-310x310.png');
 require('file?name=[name].[ext]!./mstile-70x70.png');
+require('file?name=[name].[ext]!./og-image.png');
