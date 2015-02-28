@@ -1,5 +1,5 @@
-var HTMLWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HTMLWebpack = require('html-webpack-plugin');
+var ExtractText = require('extract-text-webpack-plugin');
 
 var debug = process.env.NODE_ENV !== 'production';
 
@@ -14,16 +14,21 @@ module.exports = {
   devtool: debug ? '#source-map' : null,
   module: {
     loaders: [
-      { test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus?sourceMap') },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap') },
-      { test: /\^[^!]*\.png$/, loader: 'url-loader?limit=100000&mimetype=image/png' },
-      { test: /\.jpg$/, loader: 'file-loader' },
+      { test: /\.jsx$/, loader: 'jsx' },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.styl$/, loader: ExtractText.extract('style', 'css?sourceMap!stylus?sourceMap') },
+      { test: /\.css$/, loader: ExtractText.extract('style', 'css?sourceMap') },
+      { test: /\^[^!]*\.png$/, loader: 'url?limit=100000&mimetype=image/png' },
+      { test: /\.jpg$/, loader: 'file' },
     ]
   },
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json'],
+  },
   plugins: [
-    new HTMLWebpackPlugin({
+    new HTMLWebpack({
       template: 'src/assets/index.html',
     }),
-    new ExtractTextPlugin('bundle.css'),
+    new ExtractText('bundle.css'),
   ],
 };

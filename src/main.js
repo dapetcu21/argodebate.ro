@@ -1,18 +1,21 @@
-var _ = require('lodash');
-require('./main.styl');
 require('./assets/icons');
 
-var map = {
-  these: 'are',
-  some: 'greetings',
-};
+var _ = require('lodash');
+var $ = require('jquery');
+var React = require('react');
 
-_.each(map, function (value, key) {
-  console.log(key, value);
-});
+var RouteCreator = require('./actions/RouteCreator');
+var MainView = require('./views/MainView');
 
-if (module.hot) {
-  module.hot.accept(function () {
-    window.document.location.reload();
+_.once(function () {
+  $(window).ready(function () {
+
+    // Start routing
+    RouteCreator.start();
+
+    // Render main view
+    var mainView = React.createElement(MainView, {});
+    React.render(mainView, document.body);
   });
-}
+})();
+
