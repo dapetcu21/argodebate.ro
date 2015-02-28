@@ -12,11 +12,13 @@ module.exports = {
     loaders: [
       { test: /\.styl$/, loader: "style-loader!stylus-loader" },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
+      { test: /\^[^!]*\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
       { test: /\.jpg$/, loader: "file-loader" }
     ]
   },
   plugins: [
-    new HTMLWebpackPlugin(),
+    new HTMLWebpackPlugin({
+      template: 'src/assets/index.html',
+    }),
   ],
 };

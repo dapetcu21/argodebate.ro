@@ -1,5 +1,6 @@
 var _ = require('lodash');
 require('./main.css');
+require('./assets/icons');
 
 var map = {
   these: 'are',
