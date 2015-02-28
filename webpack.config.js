@@ -16,8 +16,8 @@ module.exports = {
     loaders: [
       { test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus?sourceMap') },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap') },
-      { test: /\^[^!]*\.png$/, loader: "url-loader?limit=100000&mimetype=image/png" },
-      { test: /\.jpg$/, loader: "file-loader" },
+      { test: /\^[^!]*\.png$/, loader: 'url-loader?limit=100000&mimetype=image/png' },
+      { test: /\.jpg$/, loader: 'file-loader' },
     ]
   },
   plugins: [
